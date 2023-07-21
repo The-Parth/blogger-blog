@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const AddBlog = () => {
   const formRef = useRef(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  //   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setSelectedImage(selectedFile);
-  };
+  //   const handleFileChange = (event) => {
+  //     const selectedFile = event.target.files[0];
+  //     setSelectedImage(selectedFile);
+  //   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,18 +18,23 @@ const AddBlog = () => {
       description: formRef.current.description.value,
       post: formRef.current.post.value,
       category: formRef.current.category.value,
-      image: selectedImage,
+      //   image: selectedImage,
     };
 
     //console logged formData
     console.log(formData);
+    formRef.current.title.value = "";
+    formRef.current.description.value = "";
+    formRef.current.post.value = "";
+    formRef.current.category.value = "";
+    // setSelectedImage(null);
   };
 
   return (
     <div className="container mx-auto p-2">
       <div className="max-w-sm mx-auto my-24 bg-[#343432] px-5 py-10 rounded shadow-xl">
         <div className="text-center mb-8">
-          <h1 className="font-bold text-2xl ">Write it out!</h1>
+          <h1 className="font-bold text-4xl ">Write it out!</h1>
         </div>
         <form ref={formRef} onSubmit={handleSubmit}>
           <div className="mt-5">
@@ -69,7 +74,7 @@ const AddBlog = () => {
               <option value="tech">Tech</option>
             </select>
           </div>
-          <div className="mt-8">
+          {/* <div className="mt-8">
             {selectedImage ? (
               <label
                 htmlFor="image"
@@ -105,12 +110,12 @@ const AddBlog = () => {
                 className="max-w-full h-auto rounded"
               />
             </div>
-          )}
-          <div className="mt-10">
+          )} */}
+          <div className="mt-10 font-bold  ">
             <input
               type="submit"
               value="Login"
-              className="py-3 bg-[#7ea4f7] hover:bg-[#5873ad] rounded text-white text-center w-full"
+              className="py-3 bg-[#7ea4f7] hover:bg-[#5873ad] hover:text-white rounded text-[#222]   text-center w-full ease-in duration-300 "
             />
           </div>
         </form>
