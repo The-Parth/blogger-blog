@@ -3,7 +3,7 @@ import React from "react";
 const AboutPage = () => {
     return (
         <div className="flex justify-center items-start h-screen">
-            <div className="bg-[#343432] p-8 rounded-lg shadow-lg w-full sm:w-[545px] mt-8 mx-10">
+            <div className="bg-[#343432] p-8 rounded-lg shadow-lg w-full md:w-[800px] mt-8 mx-10">
                 <h2 className="text-2xl font-bold mb-4">About Us</h2>
                 <p>A simple blog site made using React.js and Tailwind CSS.</p>
 

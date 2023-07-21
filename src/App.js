@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import {Routes,BrowserRouter,Route} from "react-router-dom"
 import Sports from './pages/Sports';
 import Tech from './pages/Tech';
+import AddBlog from './pages/AddBlog';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/tech' element={<Tech/>}></Route>
       <Route path='/bussiness' element={<Bussiness/>}></Route>
       <Route path='/sports' element={<Sports/>}></Route>
+      <Route path='/create' element={<AddBlog/>}></Route>
     </Routes>
     </BrowserRouter>
     </div>
