@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from "../assets/Logo.png"
 import { NavLink } from 'react-router-dom'
+import Login from './Login'
+import Signup from './Signup'
 
 const Navbar = () => {
   return (
@@ -19,8 +21,8 @@ const Navbar = () => {
         <div className='flex gap-4 w-full ml-4 mr-24 justify-end md:mr-16'>
             <div className='flex gap-4 md:text-xl'>
             <NavLink to='/create'><h1>Create</h1></NavLink>
-            <button>Login</button>
-            <button>Signup</button>
+            <NavLink to='/login'><button>Login</button></NavLink>
+            <NavLink to='/signup'><button>Signup</button></NavLink>
             </div>
         </div>
     </div>
