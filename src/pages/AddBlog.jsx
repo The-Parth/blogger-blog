@@ -11,18 +11,18 @@ const Tech = () => {
           </div>
           <form action="#">
             <div className="mt-5">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="title">Title</label>
               <input
                 type="text"
-                id="username"
+                id="title"
                 className="block w-full p-2 border-2 rounded  border-[#7ea4f7] text-[#010101]"
               />
             </div>
             <div className="mt-5">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="description">Description</label>
               <input
-                type="password"
-                id="password"
+                type="text"
+                id="description"
                 className="block w-full p-2 border-2 rounded border-[#7ea4f7] text-[#010101]"
               />
             </div>
@@ -40,12 +40,28 @@ const Tech = () => {
               </label>
               <select
                 id="category"
-                className="block w-full p-2 border-2 rounded border-[#7ea4f7]"
+                className="block w-full p-2 border-2 rounded border-[#7ea4f7] "
               >
                 <option value="business">Business</option>
                 <option value="sports">Sports</option>
                 <option value="tech">Tech</option>
               </select>
+            </div>
+            <div className="mt-8">
+              <label htmlFor="image">Add Image</label>
+              <input
+                type="file"
+                id="image"
+                accept="image/*"
+                className="hidden w-full p-2 border rounded border-gray-500 "
+                // onChange={handleFileChange}
+              />
+              <label
+                htmlFor="image"
+                className="py-2 px-3 ml-3 font-bold bg-[#7ea4f7] hover:bg-[#5873ad] rounded text-white cursor-pointer"
+              >
+                +
+              </label>
             </div>
             <div className="mt-10">
               <input
