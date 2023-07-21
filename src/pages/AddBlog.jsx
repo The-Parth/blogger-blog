@@ -7,7 +7,7 @@ const Tech = () => {
             <div className="container mx-auto p-2">
                 <div className="max-w-sm mx-auto my-24 bg-[#343432] px-5 py-10 rounded shadow-xl">
                     <div className="text-center mb-8">
-                        <h1 className="font-bold text-2xl font-bold">
+                        <h1 className="font-bold text-2xl">
                             Login To WEBZONE
                         </h1>
                     </div>
