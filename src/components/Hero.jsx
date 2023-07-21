@@ -57,7 +57,7 @@ const Slideshow = () => {
       <div className="absolute inset-0 flex items-center justify-between">
         <button
           onClick={handlePrev}
-          className="z-10 opacity-75 bg-[#121212] hover:bg-blue-600 text-white rounded-full p-2 ml-2 focus:outline-none"
+          className="z-10 opacity-75 bg-[#121212] hover:bg-blue-500 text-white rounded-full p-2 ml-2 focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const Slideshow = () => {
         </button>
         <button
           onClick={handleNext}
-          className="z-10 opacity-75 bg-[#121212]  text-white rounded-full p-2 mr-2 focus:outline-none"
+          className="z-10 opacity-75 bg-[#121212] hover:bg-blue-500  text-white rounded-full p-2 mr-2 focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
