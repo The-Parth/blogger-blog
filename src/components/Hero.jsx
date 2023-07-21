@@ -5,17 +5,17 @@ const Slideshow = () => {
     {
       id: 1,
       src: require("../images/a.png"),
-      text: "Image 1 description",
+      text: "A placid plastic duck caught in the act of waddling in the water",
     },
     {
       id: 2,
       src: require("../images/b.png"),
-      text: "Image 2 description",
+      text: "Yuu Ishigami, a character from the anime Kaguya-sama: Love is War",
     },
     {
       id: 3,
       src: require("../images/c.png"),
-      text: "Image 3 description",
+      text: "A cute lil red panda",
     },
   ];
 
