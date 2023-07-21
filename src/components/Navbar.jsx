@@ -20,6 +20,7 @@ const Navbar = () => {
         </div>
         <div className='flex gap-4 w-full ml-4 mr-24 justify-end md:mr-16'>
             <div className='flex gap-4 md:text-xl'>
+            <NavLink to='/create'><h1>Create</h1></NavLink>
             <NavLink to='/login'><button>Login</button></NavLink>
             <NavLink to='/signup'><button>Signup</button></NavLink>
             </div>
