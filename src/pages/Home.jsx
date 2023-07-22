@@ -2,6 +2,7 @@ import React, { useContext,useEffect } from "react";
 import Hero from "../components/Hero";
 import Card from "../components/containers/Card";
 import BlogContext from "../context/blog/blogcontext";
+import { Footer } from "../components/containers/Footer";
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
       <container>
         <Hero />
         <Card/>
+        <Footer />
       </container>
     </div>
   );

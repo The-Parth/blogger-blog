@@ -3,7 +3,7 @@ import "../../App.css";
 
 export const Footer = () => {
   return (
-    <footer className=" flex bg-white  shadow dark:bg-[#343432]  fixed bottom-0 w-full">
+    <footer className=" flex bg-white  shadow dark:bg-[#343432] bottom-0 w-full">
       <div className="w-full max-w-screen-xl mx-auto p-2 md:py-4  ">
         <div className="sm:flex sm:items-center sm:justify-center">
           <a

@@ -35,7 +35,6 @@ function App() {
           </BrowserRouter>
         </BlogState>
       </div>
-      <Footer />
     </>
   );
 }
