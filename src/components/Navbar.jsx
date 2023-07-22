@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo.png";
 import { Button } from "./containers/Button";
 import { NavLinkUnderlined } from "./containers/NavLinkUnderlined";
@@ -7,11 +7,12 @@ import "../App.css";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const history=useNavigate();
-  const handleLogout=()=>{
+  const history = useNavigate();
+  const handleLogout = () => {
     localStorage.removeItem("token");
-    history('/login')
-  }
+    history("/login");
+    window.location.reload(false);
+  };
 
   return (
     <nav className="p-4">
@@ -35,28 +36,28 @@ const Navbar = () => {
               Create
             </Button>
           </NavLink>
-          {!localStorage.getItem("token")?
-          <div className="flex gap-2">
-          <NavLink
-            to="/login"
-            className="text-white hover:text-[#7ea4f7] transition underline-animation"
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to="/signup"
-            className="text-white hover:text-[#7ea4f7] transition underline-animation"
-          >
-            Signup
-          </NavLink>
-          </div>:
-          <div>
-            <button onClick={handleLogout} className="text-white hover:text-[#7ea4f7] transition underline-animation">
-              Logout
-            </button>
-          </div>}
+          {!localStorage.getItem("token") ? (
+            <div className="flex gap-2">
+              <NavLink
+                to="/login"
+                className="text-white hover:text-[#7ea4f7] transition underline-animation"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className="text-white hover:text-[#7ea4f7] transition underline-animation"
+              >
+                Signup
+              </NavLink>
+            </div>
+          ) : (
+            <div>
+              <Button onClick={handleLogout}>Logout</Button>
+            </div>
+          )}
         </div>
-        <div className="md:hidden flex">
+        <div className="md:hidden flex ">
           <NavLink to="/create">
             <Button>
               {" "}
@@ -84,12 +85,18 @@ const Navbar = () => {
           <NavLink to="/about" className="block my-2 mx-2">
             About
           </NavLink>
-          <NavLink to="/login" className="block my-2 mx-2">
-            Login
-          </NavLink>
-          <NavLink to="/signup" className="block my-2 mx-2">
-            Signup
-          </NavLink>
+          {!localStorage.getItem("token") ? (
+            <>
+              <NavLink to="/login" className="block my-2 mx-2">
+                Login
+              </NavLink>
+              <NavLink to="/signup" className="block my-2 mx-2">
+                Signup
+              </NavLink>
+            </>
+          ) : (
+            <NavLinkUnderlined onClick={handleLogout}>Logout</NavLinkUnderlined>
+          )}
         </div>
       )}
     </nav>

@@ -1,44 +1,42 @@
-import React, {useState} from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./containers/Button";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [Auth, setAuth] = useState({
+    email: "",
+    password: "",
+  });
 
-  const navigate=useNavigate();
-    const [Auth, setAuth] = useState({
-        "email":"",
-        "password":""
-    })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAuth((prevVal) => {
+      return {
+        ...prevVal,
+        [name]: value,
+      };
+    });
+  };
 
-    const handleChange=(e)=>{
-        const {name,value}=e.target;
-        setAuth((prevVal)=>{
-            return({
-                ...prevVal,
-                [name]:value
-            })
-        })
+  const handleClick = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: Auth.email, password: Auth.password }),
+    });
+    const Data = await response.json();
+    if (Data.success) {
+      localStorage.setItem("token", Data.token);
+      navigate("/");
+      window.location.reload(false); //lmao ded
+    } else {
+      alert("Invalid Credentials");
     }
-
-    
-    const handleClick= async (e)=>{
-        e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({email:Auth.email,password:Auth.password})
-          });
-          const Data=await response.json();
-          if(Data.success){
-            localStorage.setItem("token",Data.token)
-            navigate("/")
-          }else{
-            alert("Invalid Credentials")
-          }
-        }
-
+  };
 
   return (
     <div className="flex justify-center items-start h-screen ">
