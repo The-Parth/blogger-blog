@@ -26,6 +26,11 @@ const blogsSchema = new Schema({
         required:true
     },
 
+    image:{
+        type:String,
+        required:false
+    },
+
     date:{
         type:Date,
         default:Date.now

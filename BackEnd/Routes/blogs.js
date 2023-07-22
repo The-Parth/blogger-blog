@@ -24,13 +24,14 @@ router.post('/addblogs',fetchUser,[
 ], async (req,res)=>{
     try {
         console.log(req.body);
-        const {title,description,post,category}=req.body;
+        const {title,description,post,category,image}=req.body;
+        console.log(image)
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         const blog = new Blogs({
-            title,description,post,category,user:req.user.id
+            title,description,post,category, image, user:req.user.id
         })
         const savedBlogs= await blog.save();
         res.json(savedBlogs);
