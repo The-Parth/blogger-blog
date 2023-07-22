@@ -3,7 +3,7 @@ import "../../App.css";
 
 export const Footer = () => {
   return (
-    <footer className="flex shadow bg-[#343432] bottom-0 w-full fixed">
+    <footer className="flex shadow bg-[#343432] bottom-0 w-full">
       <div className="w-full max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-2 sm:py-4 md:py-2">
         <div className="sm:flex sm:items-center sm:justify-center text-center">
           <a
