@@ -10,19 +10,27 @@ router.get('/fetchallblogs',fetchUser, async (req,res)=>{
     res.send(blogs);
 })
 
+router.get('/fetchcategory/:category',fetchUser, async (req,res)=>{
+    const blogs= await Blogs.find({category:req.params.category});
+    res.send(blogs);
+})
+
 router.post('/addblogs',fetchUser,[
     body('title').isLength({ min: 3 }),
     body('description').isLength({min:5}),
     body('post').isLength({min:5}),
+    body('category').isLength({min:3})
+
 ], async (req,res)=>{
     try {
-        const {title,description,post}=req.body;
+        console.log(req.body);
+        const {title,description,post,category}=req.body;
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         const blog = new Blogs({
-            title,description,post,user:req.user.id
+            title,description,post,category,user:req.user.id
         })
         const savedBlogs= await blog.save();
         res.json(savedBlogs);

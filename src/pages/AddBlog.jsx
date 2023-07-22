@@ -12,32 +12,33 @@ const AddBlog = () => {
     setSelectedImage(selectedFile);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
-    // Get form data from the refs
-    const formData = {
-      title: formRef.current.title.value,
-      description: formRef.current.description.value,
-      post: formRef.current.post.value,
-      category: formRef.current.category.value,
-      //   image: selectedImage,
-    };
+  //   // Get form data from the refs
+  //   const formData = {
+  //     title: formRef.current.title.value,
+  //     description: formRef.current.description.value,
+  //     post: formRef.current.post.value,
+  //     category: formRef.current.category.value,
+  //     //   image: selectedImage,
+  //   };
 
-    //console logged formData
-    console.log(formData);
-    formRef.current.title.value = "";
-    formRef.current.description.value = "";
-    formRef.current.post.value = "";
-    formRef.current.category.value = "";
-    setSelectedImage(null);
-  };
+  //   //console logged formData
+  //   console.log(formData);
+  //   formRef.current.title.value = "";
+  //   formRef.current.description.value = "";
+  //   formRef.current.post.value = "";
+  //   formRef.current.category.value = "";
+  //   setSelectedImage(null);
+  // };
   const navigate = useNavigate();
   const { addBlogs } = useContext(BlogContext);
   const [newBlog, setNewBlog] = useState({
     title: "",
     description: "",
     post: "",
+    category: "business",
   });
 
   const handleChange = (e) => {
@@ -52,7 +53,8 @@ const AddBlog = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    addBlogs(newBlog.title, newBlog.description, newBlog.post);
+    addBlogs(newBlog.title, newBlog.description, newBlog.post, newBlog.category);
+    console.log(newBlog);
     navigate("/");
   };
 
@@ -98,6 +100,8 @@ const AddBlog = () => {
               Category
             </label>
             <select
+              onChange={handleChange}
+              name="category" 
               id="category"
               className="block w-full p-2 border-2 rounded border-[#7ea4f7] "
             >
