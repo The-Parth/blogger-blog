@@ -21,7 +21,7 @@ code {
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {
-    scrollbar-width: none;
+    scrollbar-width: auto;
     scrollbar-color: #031130 #121212;
   }
 
