@@ -12,7 +12,7 @@ const BlogState = (props) => {
             mode: "cors", // no-cors, *cors, same-origin
             headers: {
               "Content-Type": "application/json",
-              "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmI5ZWVkNjIxODUzYjUzMzZmNWMyYyIsImlhdCI6MTY5MDAxNzU4MX0.DvH4R8QMXdI55-91mzaeo7M0yRjn1lN23da0otH_hkY"
+              "auth-token":localStorage.getItem("token")
             },
           });
           const data= await response.json();
@@ -24,7 +24,7 @@ const BlogState = (props) => {
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               headers: {
                 "Content-Type": "application/json",
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmI5ZWVkNjIxODUzYjUzMzZmNWMyYyIsImlhdCI6MTY5MDAxNzU4MX0.DvH4R8QMXdI55-91mzaeo7M0yRjn1lN23da0otH_hkY"
+                "auth-token":localStorage.getItem("token")
               },
               body: JSON.stringify({title,description,post}), // body data type must match "Content-Type" header
             });
