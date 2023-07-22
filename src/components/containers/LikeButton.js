@@ -5,14 +5,22 @@ function LikeButton() {
    const [likes, setLikes] = useState(0);
    const [liked, setLiked] = useState(false);
    return (
-      <button
-         className={`like-button ${liked ? 'liked' : ''}`}
+      <div className="flex items-center">
+         <div className="">
+         <button
+         className=""
          onClick={() => {
             setLiked(true);
          }}
       >
-         <a class="fa-solid fa-heart fa-lg group-hover:bg-white"></a>
+         <a class="fa-solid fa-heart fa-lg group-hover:bg-red-500"></a>
       </button>
+      </div>
+      <div>
+
+      </div>
+      </div>
+      
    );
 }
 export default LikeButton;
