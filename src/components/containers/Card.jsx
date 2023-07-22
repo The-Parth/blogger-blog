@@ -1,4 +1,4 @@
-import React,{useContext,useEffect} from "react"
+import React,{useContext} from "react"
 import Carditem from "./Carditem";
 import BlogContext from "../../context/blog/blogcontext";
 
@@ -8,7 +8,8 @@ const Card = () => {
 
   const {blog}=useContext(BlogContext);
   return (
-    <div className="flex">
+    <div className="flex justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 align-middle">
       {blog.map((n)=>{
         return(
           <div>
@@ -20,6 +21,7 @@ const Card = () => {
           </div>
         )
       })}
+    </div>
     </div>
   );
 };
