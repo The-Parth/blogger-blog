@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo.png";
 import { Button } from "./containers/Button";
 import { NavLinkUnderlined } from "./containers/NavLinkUnderlined";
@@ -7,10 +7,15 @@ import "../App.css";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const history=useNavigate();
+  const handleLogout=()=>{
+    localStorage.removeItem("token");
+    history('/login')
+  }
 
   return (
     <nav className="p-4">
-      <div className="flex justify-between items-center  ">
+      <div className="flex justify-between items-center">
         <div className="flex items-center ">
           <NavLink to="/home" className="pr-4">
             <img src={Logo} className="h-10 w-10 rounded-full" alt="Logo" />
@@ -30,6 +35,8 @@ const Navbar = () => {
               Create
             </Button>
           </NavLink>
+          {!localStorage.getItem("token")?
+          <div className="flex gap-2">
           <NavLink
             to="/login"
             className="text-white hover:text-[#7ea4f7] transition underline-animation"
@@ -42,6 +49,12 @@ const Navbar = () => {
           >
             Signup
           </NavLink>
+          </div>:
+          <div>
+            <button onClick={handleLogout} className="text-white hover:text-[#7ea4f7] transition underline-animation">
+              Logout
+            </button>
+          </div>}
         </div>
         <div className="md:hidden flex">
           <NavLink to="/create">
