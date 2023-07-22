@@ -5,7 +5,7 @@ const PageNotFound = () => {
         { name: "the Home page", href: "/" },
         { name: "our Tech blogs", href: "/tech" },
         { name: "the About page", href: "/about" },
-        { name: "our Business blogs", href: "/bussiness" },
+        { name: "our Business blogs", href: "/business" },
         { name: "our Sports blogs", href: "/sports" },
     ];
 
