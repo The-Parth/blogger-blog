@@ -14,11 +14,22 @@ const Navbar = () => {
     window.location.reload(false);
   };
 
+  const links = [
+    { to: "/tech", text: "Tech" },
+    { to: "/business", text: "Business" },
+    { to: "/sports", text: "Sports" },
+    { to: "/about", text: "About" },
+  ];
+
   return (
     <nav className="p-4">
       <div className="flex justify-between items-center">
         <div className="flex items-center ">
-          <NavLink to="/home" className="pr-4">
+          <NavLink
+            to="/home"
+            className="pr-4 "
+            onClick={() => setMenuOpen(false)}
+          >
             <img src={Logo} className="h-10 w-10 rounded-full" alt="Logo" />
           </NavLink>
           <div className="hidden md:flex text-white gap-x-4">
@@ -72,25 +83,33 @@ const Navbar = () => {
         </div>
       </div>
       {isMenuOpen && (
+        // mapped links
         <div className="md:hidden text-white text-center pt-2">
-          <NavLink to="/tech" className="block my-2 mx-2">
-            Tech
-          </NavLink>
-          <NavLink to="/business" className="block my-2 mx-2">
-            Business
-          </NavLink>
-          <NavLink to="/sports" className="block my-2 mx-2">
-            Sports
-          </NavLink>
-          <NavLink to="/about" className="block my-2 mx-2">
-            About
-          </NavLink>
+          {links.map((link, index) => (
+            <NavLink
+              key={index}
+              to={link.to}
+              className="block my-2 mx-2"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              {link.text}
+            </NavLink>
+          ))}
+
           {!localStorage.getItem("token") ? (
             <>
-              <NavLink to="/login" className="block my-2 mx-2">
+              <NavLink
+                to="/login"
+                onClick={() => setMenuOpen(!isMenuOpen)}
+                className="block my-2 mx-2"
+              >
                 Login
               </NavLink>
-              <NavLink to="/signup" className="block my-2 mx-2">
+              <NavLink
+                to="/signup"
+                className="block my-2 mx-2 "
+                onClick={() => setMenuOpen(!isMenuOpen)}
+              >
                 Signup
               </NavLink>
             </>
