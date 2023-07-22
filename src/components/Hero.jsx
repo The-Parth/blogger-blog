@@ -4,7 +4,7 @@ const Slideshow = () => {
   const images = [
     {
       id: 1,
-      src: require("../images/a.png"),
+      src: require("../assets/slide2.jpg"),
       text: "A placid plastic duck caught in the act of waddling in the water",
     },
     {
@@ -14,7 +14,7 @@ const Slideshow = () => {
     },
     {
       id: 3,
-      src: require("../images/c.png"),
+      src: require("../assets/slide3.jpg"),
       text: "A cute lil red panda",
     },
   ];
