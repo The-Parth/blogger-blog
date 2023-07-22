@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 
 const AddBlog = () => {
   const formRef = useRef(null);
@@ -9,26 +9,47 @@ const AddBlog = () => {
   //     setSelectedImage(selectedFile);
   //   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
-    // Get form data from the refs
-    const formData = {
-      title: formRef.current.title.value,
-      description: formRef.current.description.value,
-      post: formRef.current.post.value,
-      category: formRef.current.category.value,
-      //   image: selectedImage,
-    };
+  //   // Get form data from the refs
+  //   const formData = {
+  //     title: formRef.current.title.value,
+  //     description: formRef.current.description.value,
+  //     post: formRef.current.post.value,
+  //     category: formRef.current.category.value,
+  //     //   image: selectedImage,
+  //   };
 
-    //console logged formData
-    console.log(formData);
-    formRef.current.title.value = "";
-    formRef.current.description.value = "";
-    formRef.current.post.value = "";
-    formRef.current.category.value = "";
-    // setSelectedImage(null);
-  };
+  //   //console logged formData
+  //   console.log(formData);
+  //   formRef.current.title.value = "";
+  //   formRef.current.description.value = "";
+  //   formRef.current.post.value = "";
+  //   formRef.current.category.value = "";
+  //   // setSelectedImage(null);
+  // };
+  const [newBlog, setNewBlog] = useState({
+    title:"",
+    description:"",
+    post:""
+  })
+
+  const handleChange=(e)=>{
+    const {name,value}=e.target;
+    setNewBlog((prevValues)=>{
+      return({
+        ...prevValues,
+        [name]:value,
+      })
+    })
+  }
+
+  const handleClick=(e)=>{
+    e.preventDefault();
+    console.log(newBlog)
+  }
+
 
   return (
     <div className="container mx-auto p-2">
@@ -36,10 +57,12 @@ const AddBlog = () => {
         <div className="text-center mb-8">
           <h1 className="font-bold text-4xl ">Write it out!</h1>
         </div>
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form ref={formRef} onSubmit={handleClick}>
           <div className="mt-5">
             <label htmlFor="title">Title</label>
             <input
+              onChange={handleChange}
+              name="title"
               type="text"
               id="title"
               className="block w-full p-2 border-2 rounded  border-[#7ea4f7] text-[#010101]"
@@ -48,6 +71,8 @@ const AddBlog = () => {
           <div className="mt-5">
             <label htmlFor="description">Description</label>
             <input
+              onChange={handleChange}
+              name="description"
               type="text"
               id="description"
               className="block w-full p-2 border-2 rounded border-[#7ea4f7] text-[#010101]"
@@ -56,6 +81,8 @@ const AddBlog = () => {
           <div className="mt-5">
             <label htmlFor="post">Post</label>
             <textarea
+              onChange={handleChange}
+              name="post"
               id="post"
               rows="8"
               className="block w-full p-2 border-2 rounded border-[#7ea4f7] text-[#010101] resize-none"
@@ -112,11 +139,12 @@ const AddBlog = () => {
             </div>
           )} */}
           <div className="mt-10 font-bold  ">
-            <input
+            <button
+              // onClick={handleClick}
               type="submit"
-              value="Login"
+              value="Submit"
               className="py-3 bg-[#7ea4f7] hover:bg-[#5873ad] hover:text-white rounded text-[#222]   text-center w-full ease-in duration-300 "
-            />
+            >Submit</button>
           </div>
         </form>
       </div>
