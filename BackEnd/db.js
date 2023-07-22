@@ -1,6 +1,8 @@
 const mongoose=require('mongoose');
+const dotenv=require('dotenv');
+dotenv.config();
 
-const URI='mongodb+srv://toyash:DXpr3TB1zjI0ohrX@blogger.oqzxv4k.mongodb.net/'
+const URI = process.env.ATLAS_URI;
 
 const connectToMongo= async ()=>{
     await mongoose.connect(URI);
