@@ -1,61 +1,60 @@
-import React, { useContext, useRef,useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import BlogState from "../context/blog/BlogState";
 import BlogContext from "../context/blog/blogcontext";
 import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const formRef = useRef(null);
-  //   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  //   const handleFileChange = (event) => {
-  //     const selectedFile = event.target.files[0];
-  //     setSelectedImage(selectedFile);
-  //   };
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setSelectedImage(selectedFile);
+  };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  //   // Get form data from the refs
-  //   const formData = {
-  //     title: formRef.current.title.value,
-  //     description: formRef.current.description.value,
-  //     post: formRef.current.post.value,
-  //     category: formRef.current.category.value,
-  //     //   image: selectedImage,
-  //   };
+    // Get form data from the refs
+    const formData = {
+      title: formRef.current.title.value,
+      description: formRef.current.description.value,
+      post: formRef.current.post.value,
+      category: formRef.current.category.value,
+      //   image: selectedImage,
+    };
 
-  //   //console logged formData
-  //   console.log(formData);
-  //   formRef.current.title.value = "";
-  //   formRef.current.description.value = "";
-  //   formRef.current.post.value = "";
-  //   formRef.current.category.value = "";
-  //   // setSelectedImage(null);
-  // };
-  const navigate=useNavigate();
-  const {addBlogs}=useContext(BlogContext);
+    //console logged formData
+    console.log(formData);
+    formRef.current.title.value = "";
+    formRef.current.description.value = "";
+    formRef.current.post.value = "";
+    formRef.current.category.value = "";
+    setSelectedImage(null);
+  };
+  const navigate = useNavigate();
+  const { addBlogs } = useContext(BlogContext);
   const [newBlog, setNewBlog] = useState({
-    title:"",
-    description:"",
-    post:""
-  })
+    title: "",
+    description: "",
+    post: "",
+  });
 
-  const handleChange=(e)=>{
-    const {name,value}=e.target;
-    setNewBlog((prevValues)=>{
-      return({
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewBlog((prevValues) => {
+      return {
         ...prevValues,
-        [name]:value,
-      })
-    })
-  }
+        [name]: value,
+      };
+    });
+  };
 
-  const handleClick=(e)=>{
+  const handleClick = (e) => {
     e.preventDefault();
-   addBlogs(newBlog.title,newBlog.description,newBlog.post)
-   navigate('/')
-  }
-
+    addBlogs(newBlog.title, newBlog.description, newBlog.post);
+    navigate("/");
+  };
 
   return (
     <div className="container mx-auto p-2">
@@ -107,13 +106,13 @@ const AddBlog = () => {
               <option value="tech">Tech</option>
             </select>
           </div>
-          {/* <div className="mt-8">
+          <div className="mt-8">
             {selectedImage ? (
               <label
                 htmlFor="image"
                 className="py-2 px-3 ml-3 font-bold bg-green-500 rounded text-white cursor-pointer"
               >
-                &#10004;
+                <i className="fa-solid fa-circle-check fa-xl"></i>
               </label>
             ) : (
               <>
@@ -125,11 +124,12 @@ const AddBlog = () => {
                   className="hidden w-full p-2 border rounded border-gray-500"
                   onChange={handleFileChange}
                 />
+
                 <label
                   htmlFor="image"
-                  className="py-2 px-3 ml-3 font-bold bg-[#7ea4f7] hover:bg-[#5873ad] rounded text-white cursor-pointer"
+                  className="py-2 px-3 ml-3 font-bold bg-[#7ea4f7] rounded text-white cursor-pointer inline-block group transition ease-in duration-300 hover:bg-[#5873ad]"
                 >
-                  +
+                  <i className="fa-solid fa-plus fa-lg bg-[#7ea4f7] rounded text-[#222] group-hover:text-white transition ease-in duration-300"></i>
                 </label>
               </>
             )}
@@ -143,14 +143,16 @@ const AddBlog = () => {
                 className="max-w-full h-auto rounded"
               />
             </div>
-          )} */}
+          )}
           <div className="mt-10 font-bold  ">
             <button
-              // onClick={handleClick}
+              onClick={handleClick}
               type="submit"
               value="Submit"
               className="py-3 bg-[#7ea4f7] hover:bg-[#5873ad] hover:text-white rounded text-[#222]   text-center w-full ease-in duration-300 "
-            >Submit</button>
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
