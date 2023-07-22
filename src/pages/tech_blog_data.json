@@ -1,0 +1,29 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "Wired",
+        "content": "Wired is a massively popular publication, good at capturing real insights into the tech world, no stranger to topics like technology, entertainment, science, culture, politics, and social media. Informed and comprehensive, Wired is basically the perfect tech blog to follow.This unique blog is dedicated to modern life and the technology industry and answers every question related to tech trends, gadget reviews, and the latest updates.Wired is ranked as one of the best tech blogs for professionals in every industry and delivers great ideas for presenting the most relevant topics to your audience.",
+        "author": "Louis Rossetto, Jane Metcalfe",
+        "date": "1993-07-15",
+        "image": "src/images/Tech blog-Wired.png"
+      },
+      {
+        "id": 2,
+        "title": "TechCrunch",
+        "content": "Invest yourself in the business verse of the tech world with one of the most popular technology blogs thriving this year- TechCrunch.The blog publishes content on businesses related to tech, analysis of emerging trends in tech, technology news, and listings of new tech products in the market. It is one of the first publications to report broadly on tech startups and funding rounds.TechCrunch offers knowledge about new gizmos and business-related apps. It is like a reservoir of information on Internet companies & startups around the world.",
+        "author": "Michael Arrington, Keith Teare",
+        "date": "2005-07-20",
+        "image": "src/images/Tech blog-TechCrunch.png"
+      },
+      {
+        "id": 3,
+        "title": "Recode",
+        "content": "Currently, owned by VOX media, Recode gives the most updated independent technology news, analysis trends, and reviews from the most respected and informed journalists as well as bloggers in media and technology.Recode is uncovering and explaining how our tech world is changing by focusing on the businesses of Silicon Valley.Its founder Kara Swisher has all the connections to the latest tech tips and products, making it a robust technology blog to read!",
+        "author": "Kara Swisher",
+        "date": "2014-07-22",
+        "image": "src/images/Tech blog-Recode.png"
+      }
+    ]
+  }
+  
