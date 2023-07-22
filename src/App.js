@@ -9,6 +9,7 @@ import Tech from './pages/Tech';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import AddBlog from './pages/AddBlog';
+import PageNotFound from './pages/404';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/create' element={<AddBlog/>}></Route>
+      <Route path='*' element={<PageNotFound/>}></Route>
     </Routes>
     </BrowserRouter>
     </div>
