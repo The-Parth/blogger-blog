@@ -1,11 +1,18 @@
 const express=require('express');
 const app=express();
+const cors=require("cors");
+const connectToMongo =require("./db")
 
-const Port=5000;
+app.use(cors())
+app.use(express.json())
 
-app.get("/",(req,res)=>{
-    res.json({Name:"Toyash",Team:'Tech'});
-})
+
+const Port=6000;
+
+connectToMongo();
+
+app.use('/api/auth', require('./Routes/auth.js'))
+app.use('/api/blogs', require('./Routes/blogs.js'))
 
 
 app.listen(Port,()=>{
