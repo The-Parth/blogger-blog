@@ -21,26 +21,36 @@ const AboutPage = () => {
                         <a>
                             Aastha Deshwal
                         </a>
-                        <a href = "https://github.com/AasthaDeshwal" target="_blank" className="fa-brands fa-github pl-2 transition-colors duration-300 hover:text-[#4078c0]"></a>
+                        <a href = "https://github.com/AasthaDeshwal" target="_blank" className="fa-brands fa-github pl-2 
+                        transition duration-300 hover:text-[#4078c0]
+                        ease-in-out hover:-translate-y-[2px] hover:scale-110 duration:200"></a>
                     </li>
                     <li>
                         <a>
                             Atharva Upare
                         </a>
-                        <a href = "https://github.com/atharvaupare" target="_blank" className="fa-brands fa-github pl-2 transition-colors duration-300 hover:text-[#4078c0]"></a>
+                        <a href = "https://github.com/atharvaupare" target="_blank" className="fa-brands fa-github pl-2 
+                        transition duration-300 hover:text-[#4078c0]
+                        ease-in-out hover:-translate-y-[2px] hover:scale-110 duration:200"></a>
                     </li>
                     <li>
                         <a>
                             Parth Bhanushali
                         </a>
-                        <a href = "https://github.com/The-Parth" target="_blank" className="fa-brands fa-github pl-2 transition-colors duration-300 hover:text-[#4078c0]"></a>
-                        <a href = "https://www.linkedin.com/in/parth-bhanushali-b771ab251/" target="_blank" className="fa-brands fa-linkedin pl-2 transition-colors duration-300 hover:text-[#0077b5]"></a>
+                        <a href = "https://github.com/The-Parth" target="_blank" className="fa-brands fa-github pl-2 
+                        transition duration-300 hover:text-[#4078c0]
+                        ease-in-out hover:-translate-y-[2px] hover:scale-110 duration:200"></a>
+                        <a href = "https://www.linkedin.com/in/parth-bhanushali-b771ab251/" target="_blank" className="fa-brands fa-linkedin pl-2 
+                        transition duration-300 hover:text-[#0077b5]
+                        ease-in-out hover:-translate-y-[2px] hover:scale-110 duration:200"></a>
                     </li>
                     <li>
                         <a>
                             Toyash Patil
                         </a>
-                        <a href = "https://github.com/ToyashPatil" target="_blank" className="fa-brands fa-github pl-2 transition-colors duration-300 hover:text-[#4078c0]"></a>
+                        <a href = "https://github.com/ToyashPatil" target="_blank" className="fa-brands fa-github pl-2 
+                        transition duration-300 hover:text-[#4078c0]
+                        ease-in-out hover:-translate-y-[2px] hover:scale-110 duration:200"></a>
                     </li>
                 </ul>
             </div>
