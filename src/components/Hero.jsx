@@ -5,7 +5,7 @@ const Slideshow = () => {
     {
       id: 1,
       src: require("../assets/slide2.jpg"),
-      text: "A placid plastic duck caught in the act of waddling in the water",
+      text: "Coding is Awesome",
     },
     {
       id: 2,
@@ -15,7 +15,7 @@ const Slideshow = () => {
     {
       id: 3,
       src: require("../assets/slide3.jpg"),
-      text: "A cute lil red panda",
+      text: "Cute girl",
     },
   ];
 
