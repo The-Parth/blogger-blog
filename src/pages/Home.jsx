@@ -11,13 +11,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <container>
-        <Hero />
-        <Card />
-      </container>
-      <Footer />
-    </div>
+    <>
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-grow">
+          <Hero />
+          <Card />
+        </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 
