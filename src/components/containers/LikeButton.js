@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./like.css";
-import {AiOutlineHeart} from "react-icons/ai"
 
 function LikeButton() {
    const [likes, setLikes] = useState(0);
@@ -9,11 +8,10 @@ function LikeButton() {
       <button
          className={`like-button ${liked ? 'liked' : ''}`}
          onClick={() => {
-            setLikes(AiOutlineHeart + 1);
             setLiked(true);
          }}
       >
-         {AiOutlineHeart} <AiOutlineHeart></AiOutlineHeart>
+         <a class="fa-solid fa-heart fa-lg group-hover:bg-white"></a>
       </button>
    );
 }

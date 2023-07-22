@@ -32,17 +32,17 @@ const BlogState = (props) => {
         setBlog(data);
     };
 
-    const addBlogs = async (title, description, post, category) => {
+    const addBlogs = async (title, description, post, category, image) => {
         const response = await fetch(`${host}/api/blogs/addblogs`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token"),
             },
-            body: JSON.stringify({ title, description, post, category }), // body data type must match "Content-Type" header
+            body: JSON.stringify({ title, description, post, category, image }), // body data type must match "Content-Type" header
         });
         const Data = await response.json();
-        console.log(Data);
+        //console.log(Data);
         setBlog(blog.concat(Data));
     };
 
