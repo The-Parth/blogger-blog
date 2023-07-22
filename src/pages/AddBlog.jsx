@@ -1,4 +1,7 @@
-import React, { useRef,useState } from "react";
+import React, { useContext, useRef,useState } from "react";
+import BlogState from "../context/blog/BlogState";
+import BlogContext from "../context/blog/blogcontext";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const formRef = useRef(null);
@@ -29,6 +32,8 @@ const AddBlog = () => {
   //   formRef.current.category.value = "";
   //   // setSelectedImage(null);
   // };
+  const navigate=useNavigate();
+  const {addBlogs}=useContext(BlogContext);
   const [newBlog, setNewBlog] = useState({
     title:"",
     description:"",
@@ -47,7 +52,8 @@ const AddBlog = () => {
 
   const handleClick=(e)=>{
     e.preventDefault();
-    console.log(newBlog)
+   addBlogs(newBlog.title,newBlog.description,newBlog.post)
+   navigate('/')
   }
 
 

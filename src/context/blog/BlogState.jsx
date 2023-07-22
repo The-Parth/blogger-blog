@@ -20,7 +20,7 @@ const BlogState = (props) => {
         }
 
     const addBlogs =async (title,description,post)=>{
-            const response = await fetch(`${host}/api/notes/addnotes`, {
+            const response = await fetch(`${host}/api/blogs/addblogs`, {
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               headers: {
                 "Content-Type": "application/json",
