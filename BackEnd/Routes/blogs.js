@@ -41,6 +41,12 @@ router.post('/addblogs',fetchUser,[
     }
 })
 
+router.get('/getblog/:id',fetchUser, async (req,res)=>{
+    const blog= await Blogs.find({_id:req.params.id});
+    res.json(blog);
+})
+
+
 router.delete('/deleteblogs/:id',fetchUser, async (req,res)=>{
 
     let note= await Blogs.findById(req.params.id);
