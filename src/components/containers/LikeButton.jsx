@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const LikeButton = ({ title }) => {
+const LikeButton = ({ id }) => {
   const [liked, setLiked] = useState(false);
 
   const handleLike = () => {
     setLiked(!liked);
-    console.log({ title, liked: !liked });
+    console.log({ id, liked: !liked });
   };
 
   return (
