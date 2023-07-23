@@ -4,7 +4,7 @@ const User = require("../Models/User");
 const { body, sanitizeBody, validationResult } = require('express-validator');
 const bcrypt=require('bcryptjs');
 var jwt = require('jsonwebtoken');
-const fetchUser=require('../middleware/fetchUser');
+const fetchUser=require('../middleware/user');
 const { json } = require('body-parser');
 
 
