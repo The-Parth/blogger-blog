@@ -44,7 +44,11 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
             <div className="w-full aspect-[1.33] relative group">
                 <img
                     className="w-full object-cover h-full"
-                    src={image}
+                    src={
+                        image
+                            ? image
+                            : "https://images.theconversation.com/files/182925/original/file-20170822-30538-gebk45.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+                    }
                     alt={title}
                 />
                 <div className="flex items-end justify-end absolute bottom-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity z-9">
@@ -52,9 +56,7 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
                 </div>
             </div>
 
-            <div
-                className="px-6 py-4 bg-[#031130] h-[100%] w-full"
-            >
+            <div className="px-6 py-4 bg-[#031130] h-[100%] w-full">
                 <div className="font-bold text-xl mb-2 pt-4 break-words">
                     {title}
                 </div>
