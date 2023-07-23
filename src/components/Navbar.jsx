@@ -21,6 +21,11 @@ const Navbar = () => {
     { to: "/about", text: "About" },
   ];
 
+  const createClickHandler = () => {
+    const token = localStorage.getItem("token");
+    return token ? "/create" : "/signup";
+  };
+
   return (
     <nav className="p-4">
       <div className="flex justify-between items-center">
@@ -40,9 +45,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="hidden md:flex justify-center items-center  text-white gap-x-4">
-          <NavLink to="/create">
+          <NavLink to={createClickHandler()}>
             <Button>
-              {" "}
               <i class="fa-solid fa-circle-plus pr-2 text-blue-500 transition ease-in group-hover:text-white group-hover:duration-200"></i>
               Create
             </Button>
@@ -69,9 +73,8 @@ const Navbar = () => {
           )}
         </div>
         <div className="md:hidden flex ">
-          <NavLink to="/create">
+          <NavLink to={createClickHandler()}>
             <Button>
-              {" "}
               <i class="fa-solid fa-circle-plus pr-2 text-blue-500 transition ease-in group-hover:text-white group-hover:duration-200"></i>
               Create
             </Button>
