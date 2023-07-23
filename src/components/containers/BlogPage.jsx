@@ -40,7 +40,7 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
     };
 
     return (
-        <div className="w-full max-w-sm rounded overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] m-4 cursor-pointer">
+        <div className="w-full max-w-sm rounded m-auto overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] cursor-pointer">
             <div className="w-full aspect-[1.33] relative group">
                 <img
                     className="w-full object-cover h-full"
@@ -57,13 +57,13 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
             </div>
 
             <div className="px-6 py-4 bg-[#031130] h-[100%] w-full">
-                <div className="font-bold text-xl mb-2 pt-4 break-words">
+                <div className="font-bold text-xl mb-2 pt-4 break-words text-center">
                     {title}
                 </div>
-                <p className="text-[#7ea4f7] text-base pb-4 break-words">
+                <p className="text-[#7ea4f7] text-base pb-4 break-words text-center">
                     {description}
                 </p>
-                <p className="text-[#7ea4f7] text-base pb-4 break-words">
+                <p className="text-[#7ea4f7] text-base pb-4 break-words text-center">
                     {post}
                 </p>
                 <p className="text-gray-400 text-xs">- by {userobj.name}</p>
