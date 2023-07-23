@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./containers/Button";
+import hostFunc from "../host";
+
+const host = hostFunc();
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -23,7 +26,7 @@ const Signup = () => {
     const handleClick = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            "https://blogger-back.onrender.com/api/auth/createUser",
+            `${host}/api/auth/createUser`,
             {
                 method: "POST",
                 headers: {

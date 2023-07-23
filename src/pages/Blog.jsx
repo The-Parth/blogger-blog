@@ -3,12 +3,14 @@ import BlogPage from "../components/containers/BlogPage";
 import { useParams } from "react-router-dom";
 import PageNotFound from "./404";
 import { useNavigate } from "react-router-dom";
+import hostFunc from "../host";
+
+const host = hostFunc();
 
 const Blog = () => {
     const params = useParams();
     const { id } = params;
 
-    const host = "https://blogger-back.onrender.com";
     const [blogObj, setBlogObj] = useState(null);
     const navigate = useNavigate();
 

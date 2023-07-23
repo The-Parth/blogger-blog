@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import LikeButton from "./LikeButton";
 import { useNavigate } from "react-router-dom";
+import hostFunc from "../../host";
+
+const host = hostFunc();
 
 const BlogPage = ({ title, description, post, user, id, image }) => {
-    const host = "https://blogger-back.onrender.com";
+
     const [userobj, setUserObj] = useState(null);
     const navigate = useNavigate();
 
