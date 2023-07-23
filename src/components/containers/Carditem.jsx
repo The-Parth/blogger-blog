@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import LikeButton from "./LikeButton";
+import { useNavigate } from "react-router-dom";
 
-const Carditem = ({ Url, content, alt, title, user }) => {
+const Carditem = ({ Url, content, alt, title, user,newid }) => {
     const host = "http://localhost:5000";
     const [userobj, setUserObj] = useState(null);
+    const navigate=useNavigate();
 
     useEffect(() => {
         const getUsername = async (user) => {
@@ -33,9 +35,12 @@ const Carditem = ({ Url, content, alt, title, user }) => {
         // Return some loading UI or null while waiting for the user data
         return null;
     }
+    const handleBig=(passid)=>{
+        navigate(`/blog/${passid}`)
+    }
 
     return (
-      <div className="w-full max-w-sm rounded overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] m-4">
+      <div className="w-full max-w-sm rounded overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] m-4 cursor-pointer" onClick={()=>{handleBig(newid)}}>
       <div className="w-full aspect-[1.33] relative group">
           <img
               className="w-full object-cover h-full"

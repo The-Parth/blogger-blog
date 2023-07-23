@@ -11,6 +11,7 @@ const Card = () => {
         {blog.map((n, index) => (
           <div key={index} className="flex items-stretch ">
             <Carditem
+              newid={n._id}
               Url={
                 n.image
                   ? n.image
