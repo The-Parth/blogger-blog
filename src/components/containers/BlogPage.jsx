@@ -3,7 +3,7 @@ import LikeButton from "./LikeButton";
 import { useNavigate } from "react-router-dom";
 
 const BlogPage = ({ title, description, post, user, id, image }) => {
-    const host = "http://localhost:5000";
+    const host = "https://blogger-back.onrender.com";
     const [userobj, setUserObj] = useState(null);
     const navigate = useNavigate();
 

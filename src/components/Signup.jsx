@@ -23,7 +23,7 @@ const Signup = () => {
     const handleClick = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            "http://localhost:5000/api/auth/createUser",
+            "https://blogger-back.onrender.com/api/auth/createUser",
             {
                 method: "POST",
                 headers: {

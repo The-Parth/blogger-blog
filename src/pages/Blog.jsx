@@ -8,7 +8,7 @@ const Blog = () => {
     const params = useParams();
     const { id } = params;
 
-    const host = "http://localhost:5000";
+    const host = "https://blogger-back.onrender.com";
     const [blogObj, setBlogObj] = useState(null);
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Blog = () => {
         const getBlog = async (blogid) => {
             try {
                 const response = await fetch(
-                    `http://localhost:5000/api/blogs/getblog/${blogid}`,
+                    `${host}/api/blogs/getblog/${blogid}`,
                     {
                         method: "GET",
                         mode: "cors",
