@@ -3,12 +3,14 @@ import BlogPage from "../components/containers/BlogPage";
 import { useParams } from "react-router-dom";
 import PageNotFound from "./404";
 import { useNavigate } from "react-router-dom";
+import hostFunc from "../host";
+
+const host = hostFunc();
 
 const Blog = () => {
     const params = useParams();
     const { id } = params;
 
-    const host = "http://localhost:5000";
     const [blogObj, setBlogObj] = useState(null);
     const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ const Blog = () => {
         const getBlog = async (blogid) => {
             try {
                 const response = await fetch(
-                    `http://localhost:5000/api/blogs/getblog/${blogid}`,
+                    `${host}/api/blogs/getblog/${blogid}`,
                     {
                         method: "GET",
                         mode: "cors",

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import LikeButton from "./LikeButton";
 import { useNavigate } from "react-router-dom";
+import hostFunc from "../../host";
+
+const host = hostFunc();
 
 const Carditem = ({ Url, content, alt, title, description, user, newid }) => {
-  const host = "http://localhost:5000";
+
   const [userobj, setUserObj] = useState(null);
   const navigate = useNavigate();
 

@@ -4,7 +4,7 @@ import BlogContext from "./blogcontext";
 const BlogState = (props) => {
     let initialBlog = [];
     const [blog, setBlog] = useState([]);
-    const host = "http://localhost:5000";
+    const host = "https://blogger-back.onrender.com";
     const getBlogs = async () => {
         const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
