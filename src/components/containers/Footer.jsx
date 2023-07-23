@@ -5,12 +5,12 @@ export const Footer = () => {
   return (
     <footer className="flex shadow bg-[#343432] bottom-0 w-full">
       <div className="w-full max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-2 sm:py-4 md:py-2">
-        <div className="sm:flex sm:items-center sm:justify-center text-center">
+        <div className="sm:flex sm:items-center sm:justify-center text-center ">
           <a
             href="https://www.linkedin.com/company/csi---kjsce-student's-chapter/"
-            className="flex items-center mb-2 sm:mb-0"
+            className="flex items-center mb-2 sm:mb-0 "
           >
-            <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
+            <span className="self-center text-sm font-semibold whitespace-nowrap text-white sm:text-sm md:text-base lg:text-lg xl:text-xl">
               Made with
               <i className="fa-solid fa-heart fa-lg text-red-600 mx-1"></i>
               by Tech Team, CSI-KJSCE.
