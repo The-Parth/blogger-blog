@@ -1,21 +1,64 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect } from "react";
+import BlogPage from "../components/containers/BlogPage";
 import { useParams } from "react-router-dom";
 import PageNotFound from "./404";
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
     const params = useParams();
     const { id } = params;
-    if (id.length < 21 && id.length > 26) {
-        return <PageNotFound />;
-    }
-    const getOneBlog=async(blogid)=>{
-        const response= await fetch(`http://localhost:5000/api/blogs/getblog/${id}`);
-        const data=await response.json();
-        console.log(data);
-    }
-    
-    
-    
+
+    const host = "http://localhost:5000";
+    const [blogObj, setBlogObj] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const getBlog = async (blogid) => {
+            try {
+                const response = await fetch(
+                    `http://localhost:5000/api/blogs/getblog/${blogid}`,
+                    {
+                        method: "GET",
+                        mode: "cors",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "auth-token": localStorage.getItem("token"),
+                        },
+                    }
+                );
+                const blogData = await response.json();
+                setBlogObj(blogData);
+                console.log(blogData);
+            } catch (error) {
+                console.error("Error fetching blog:", error);
+            }
+        };
+
+        getBlog(id);
+    }, [id]);
+
+    return (
+        <div>
+            {blogObj ? (
+                blogObj.error ? (
+                    <PageNotFound />) : (
+                    <div>
+                        <BlogPage 
+                            title = {blogObj.title}
+                            description = {blogObj.description}
+                            post = {blogObj.post}
+                            user = {blogObj.user}
+                            id = {blogObj._id}
+                            image = {blogObj.image}
+                        />
+                    </div>
+            ) ): (
+                <div className="flex justify-center items-center h-screen">
+                    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default Blog;

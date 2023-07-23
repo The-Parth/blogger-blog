@@ -43,6 +43,9 @@ router.post('/addblogs',fetchUser,[
 
 router.get('/getblog/:id',fetchUser, async (req,res)=>{
     const blog=await Blogs.findById(req.params.id);
+    if(!blog){
+        res.json({error:"Not found"})
+    }
     res.json(blog);
 })
 
