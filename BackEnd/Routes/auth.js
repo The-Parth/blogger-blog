@@ -98,7 +98,10 @@ router.get("/userbyid/:id", async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        res.json(user); // Sending the user object as a JSON response
+        // remove the password property before sending it back
+        user.password = undefined;
+
+        res.json(user);
 
         
     } catch (error) {
