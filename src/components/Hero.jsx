@@ -4,18 +4,18 @@ const Slideshow = () => {
   const images = [
     {
       id: 1,
-      src: require("../assets/slide2.jpg"),
-      text: "Coding is Awesome",
+      src: require("../assets/slide1.jpg"),
+      text: "Discover, Create, Connect: Empower Your Voice.",
     },
     {
       id: 2,
-      src: require("../images/b.png"),
-      text: "Yuu Ishigami, a character from the anime Kaguya-sama: Love is War",
+      src: require("../assets/slide2.jpg"),
+      text: "Where Words Take Flight: Your Blogging Journey Begins.",
     },
     {
       id: 3,
       src: require("../assets/slide3.jpg"),
-      text: "Cute girl",
+      text: "Unleash Your Thoughts: Blogging Unbound.",
     },
   ];
 
