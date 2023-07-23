@@ -64,7 +64,14 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
                     {description}
                 </p>
                 <p className="text-[#7ea4f7] text-base pb-4 break-words">
-                    {post}
+                    {post.split("\n").map((line, index) => (
+                        <p
+                            key={index}
+                            className="text-[#7ea4f7] text-base pb-4 break-words"
+                        >
+                            {line}
+                        </p>
+                    ))}
                 </p>
                 <p className="text-gray-400 text-xs">- by {userobj.name}</p>
             </div>
