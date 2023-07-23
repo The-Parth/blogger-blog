@@ -40,10 +40,12 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
     };
 
     return (
-        <div className="w-full max-w-sm rounded m-auto overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] cursor-pointer">
-            <div className="w-full aspect-[1.33] relative group">
+        <div
+            className="flex items-center justify-center"
+        >
+            <div className="max-w-xl min-w-[60%] mx-4 rounded overflow-hidden shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)] cursor-pointer">
                 <img
-                    className="w-full object-cover h-full"
+                    className="w-full min-h-[20vh] h-full object-cover"
                     src={
                         image
                             ? image
@@ -51,29 +53,22 @@ const BlogPage = ({ title, description, post, user, id, image }) => {
                     }
                     alt={title}
                 />
-                <div className="flex items-end justify-end absolute bottom-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity z-9">
-                    <LikeButton title={title} />
+                <div className="px-6 py-4 bg-[#031130]">
+                    <div className="font-bold text-xl mb-2 pt-4 break-words text-center">
+                        {title}
+                    </div>
+                    <p className="text-white text-base pb-4 break-words text-center">
+                        {description}
+                    </p>
+                    <div className="text-[#7ea4f7] text-base pb-4 break-words text-left">
+                        {post.split("\n").map((line, index) => (
+                            <p key={index} className="mb-2">
+                                {line}
+                            </p>
+                        ))}
+                    </div>
+                    <p className="text-gray-400 text-xs">- by {userobj.name}</p>
                 </div>
-            </div>
-
-            <div className="px-6 py-4 bg-[#031130] h-[100%] w-full">
-                <div className="font-bold text-xl mb-2 pt-4 break-words text-center">
-                    {title}
-                </div>
-                <p className="text-[#7ea4f7] text-base pb-4 break-words text-center">
-                    {description}
-                </p>
-                <p className="text-[#7ea4f7] text-base pb-4 break-words text-center">
-                    {post.split("\n").map((line, index) => (
-                        <p
-                            key={index}
-                            className="text-[#7ea4f7] text-base pb-4 break-words"
-                        >
-                            {line}
-                        </p>
-                    ))}
-                </p>
-                <p className="text-gray-400 text-xs">- by {userobj.name}</p>
             </div>
         </div>
     );
