@@ -42,7 +42,7 @@ router.post('/addblogs',fetchUser,[
 })
 
 router.get('/getblog/:id',fetchUser, async (req,res)=>{
-    const blog= await Blogs.find({_id:req.params.id});
+    const blog=await Blogs.findById(req.params.id);
     res.json(blog);
 })
 
