@@ -11,7 +11,7 @@ const Card = () => {
     // Replace this with your actual API call if applicable
     setTimeout(() => {
       setLoading(false);
-    }, 3000); // Change the delay time as needed
+    }, 1000); // Change the delay time as needed
   }, []);
 
   return (
