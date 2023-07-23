@@ -18,6 +18,7 @@ const Card = () => {
               }
               title={n.title}
               content={n.post}
+              user = {n.user}
             />
           </div>
         ))}

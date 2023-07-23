@@ -5,6 +5,7 @@ const { body, sanitizeBody, validationResult } = require('express-validator');
 const bcrypt=require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchUser=require('../middleware/fetchUser');
+const { json } = require('body-parser');
 
 
 const JWT_token ="csi123";
@@ -88,5 +89,22 @@ router.post('/getuser', fetchUser, async (req, res) => {
         console.error(error);
     }
 })
+
+router.get("/userbyid/:id", async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(user); // Sending the user object as a JSON response
+
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server Error' });
+    }
+});
 
 module.exports = router;
