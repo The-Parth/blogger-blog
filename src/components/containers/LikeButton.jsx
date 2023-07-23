@@ -12,27 +12,32 @@ const LikeButton = ({ id }) => {
       setLikeCount(storedData.likeCount);
     }
   }, [id]);
-
   const handleLike = () => {
-    // Check if the user has already liked the post
     const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
     if (likedPosts.includes(id)) {
-      return; // If already liked, don't do anything
+      const newLikedPosts = likedPosts.filter((postId) => postId !== id);
+      localStorage.setItem("likedPosts", JSON.stringify(newLikedPosts));
+
+      const newLikeCount = likeCount - 1;
+      setLiked(false);
+      setLikeCount(newLikeCount);
+
+      localStorage.setItem(
+        `likeData_${id}`,
+        JSON.stringify({ liked: false, likeCount: newLikeCount })
+      );
+    } else {
+      localStorage.setItem("likedPosts", JSON.stringify([...likedPosts, id]));
+
+      const newLikeCount = likeCount + 1;
+      setLiked(true);
+      setLikeCount(newLikeCount);
+
+      localStorage.setItem(
+        `likeData_${id}`,
+        JSON.stringify({ liked: true, likeCount: newLikeCount })
+      );
     }
-
-    // Mark the post as liked for the current user
-    localStorage.setItem("likedPosts", JSON.stringify([...likedPosts, id]));
-
-    // Update like count and set 'liked' to true
-    const newLikeCount = likeCount + 1;
-    setLiked(true);
-    setLikeCount(newLikeCount);
-
-    // Save the updated like data to localStorage for this specific id
-    localStorage.setItem(
-      `likeData_${id}`,
-      JSON.stringify({ liked: true, likeCount: newLikeCount })
-    );
   };
 
   return (
