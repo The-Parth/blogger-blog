@@ -51,7 +51,7 @@ const Carditem = ({ Url, content, alt, title, description, user, newid }) => {
         <img className="w-full object-cover h-full" src={Url} alt={alt} />
         <div className="flex items-end justify-end absolute bottom-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity z-99999">
           <button onClick={handleLikeClick}>
-            <LikeButton title={title} />
+            <LikeButton title={title} id={newid} />
           </button>
         </div>
       </div>
