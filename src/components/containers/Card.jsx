@@ -17,7 +17,9 @@ const Card = () => {
   return (
     <div className="flex justify-center">
       {loading ? (
-        <img src="https://i.pinimg.com/originals/36/3c/2e/363c2ec45f7668e82807a0c053d1e1d0.gif" />
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-[#7ea4f7] border-b-6"></div>
+        </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {blog.map((n, index) => (
