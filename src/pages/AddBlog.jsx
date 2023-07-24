@@ -67,7 +67,7 @@ const AddBlog = () => {
       title: newBlog.title.trim().length <= 3,
       description: newBlog.description.trim().length <= 5,
       post: newBlog.post.trim().length <= 5,
-      category: newBlog.category.trim().length <= 5,
+
       image: selectedImage ? selectedImage.size > 1048576 : false,
     };
 
@@ -191,20 +191,13 @@ const AddBlog = () => {
               onChange={handleChange}
               name="category"
               id="category"
-              className={`block w-full p-2 border-2 rounded border-[#7ea4f7] ${
-                formErrors.category ? "border-red-500" : "border-[#7ea4f7]"
-              }`}
+              className="block w-full p-2 border-2 rounded border-[#7ea4f7]"
               required
             >
               <option value="business">Business</option>
               <option value="sports">Sports</option>
               <option value="tech">Tech</option>
             </select>
-            {formErrors.category && (
-              <p className="text-red-500 mt-1">
-                Category must be at least 5 characters long.
-              </p>
-            )}
           </div>
 
           <div className="mt-8">

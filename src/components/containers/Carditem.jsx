@@ -6,7 +6,6 @@ import hostFunc from "../../host";
 const host = hostFunc();
 
 const Carditem = ({ Url, content, alt, title, description, user, newid }) => {
-
   const [userobj, setUserObj] = useState(null);
   const navigate = useNavigate();
 
@@ -59,7 +58,7 @@ const Carditem = ({ Url, content, alt, title, description, user, newid }) => {
         </div>
       </div>
 
-      <div className="px-6 py-4 bg-[#031130] h-[100%] w-full">
+      <div className="px-6 py-4 bg-gradient-to-b from-blue-900 to-blue-300 h-[100%] w-full">
         <div className="font-bold text-xl mb-2 pt-4 break-words">{title}</div>
         <p className="text-[#7ea4f7] text-base pb-4 break-words">
           {description}
