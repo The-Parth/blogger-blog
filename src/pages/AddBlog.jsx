@@ -1,15 +1,17 @@
 import React, { useContext, useRef, useState } from "react";
-import BlogState from "../context/blog/BlogState";
+
 import BlogContext from "../context/blog/blogcontext";
 import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const formRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
+
   const [formErrors, setFormErrors] = useState({
     title: false,
     description: false,
     post: false,
+    image: false,
   });
 
   const handleFileChange = (event) => {
@@ -24,9 +26,6 @@ const AddBlog = () => {
       return;
     }
 
-    // Rest of the code for handling form submission...
-
-    // Get form data from the refs
     const formData = {
       title: formRef.current.title.value,
       description: formRef.current.description.value,
@@ -64,11 +63,12 @@ const AddBlog = () => {
     });
   };
   const validateForm = () => {
-    // Basic validation for required fields
     const errors = {
-      title: newBlog.title.trim() === "",
-      description: newBlog.description.trim() === "",
-      post: newBlog.post.trim() === "",
+      title: newBlog.title.trim().length <= 3,
+      description: newBlog.description.trim().length <= 5,
+      post: newBlog.post.trim().length <= 5,
+      category: newBlog.category.trim().length <= 5,
+      image: selectedImage ? selectedImage.size > 1048576 : false,
     };
 
     setFormErrors(errors);
@@ -93,15 +93,16 @@ const AddBlog = () => {
     async function getB64(myFile) {
       try {
         const file = myFile;
-        //console.log(file);
         if (!file) {
           return "";
         }
 
+        // Check file size (1 MB = 1,048,576 bytes)
+
         const base64String = await imageFileToBase64(file);
         return base64String;
       } catch (error) {
-        console.error("Error converting image to Base64:", error);
+        console.error("Error converting image to Base64:", error.message);
         return "";
       }
     }
@@ -135,9 +136,16 @@ const AddBlog = () => {
               name="title"
               type="text"
               id="title"
-              className="block w-full p-2 border-2 rounded  border-[#7ea4f7] text-[#010101]"
+              className={`block w-full p-2 border-2 rounded  border-[#7ea4f7] ${
+                formErrors.title ? "border-red-500" : "border-[#7ea4f7]"
+              } text-[#010101]`}
               required
             />
+            {formErrors.title && (
+              <p className="text-red-500 mt-1">
+                Title must be at least 3 characters long.
+              </p>
+            )}
           </div>
           <div className="mt-5">
             <label htmlFor="description">Description</label>
@@ -146,9 +154,16 @@ const AddBlog = () => {
               name="description"
               type="text"
               id="description"
-              className="block w-full p-2 border-2 rounded border-[#7ea4f7] text-[#010101]"
+              className={`block w-full p-2 border-2 rounded border-[#7ea4f7] ${
+                formErrors.description ? "border-red-500" : "border-[#7ea4f7]"
+              } text-[#010101]`}
               required
             />
+            {formErrors.description && (
+              <p className="text-red-500 mt-1">
+                Description must be at least 5 characters long.
+              </p>
+            )}
           </div>
           <div className="mt-5">
             <label htmlFor="post">Post</label>
@@ -157,9 +172,16 @@ const AddBlog = () => {
               name="post"
               id="post"
               rows="8"
-              className="block w-full p-2 border-2 rounded border-[#7ea4f7] text-[#010101] resize-none"
+              className={`block w-full p-2 border-2 rounded border-[#7ea4f7] ${
+                formErrors.post ? "border-red-500" : "border-[#7ea4f7]"
+              } text-[#010101] resize-none`}
               required
             />
+            {formErrors.post && (
+              <p className="text-red-500 mt-1">
+                Post must be at least 5 characters long.
+              </p>
+            )}
           </div>
           <div className="mt-4 text-[#010101]">
             <label htmlFor="category " className="text-white">
@@ -169,22 +191,42 @@ const AddBlog = () => {
               onChange={handleChange}
               name="category"
               id="category"
-              className="block w-full p-2 border-2 rounded border-[#7ea4f7] "
+              className={`block w-full p-2 border-2 rounded border-[#7ea4f7] ${
+                formErrors.category ? "border-red-500" : "border-[#7ea4f7]"
+              }`}
               required
             >
               <option value="business">Business</option>
               <option value="sports">Sports</option>
               <option value="tech">Tech</option>
             </select>
+            {formErrors.category && (
+              <p className="text-red-500 mt-1">
+                Category must be at least 5 characters long.
+              </p>
+            )}
           </div>
+
           <div className="mt-8">
             {selectedImage ? (
-              <label
-                htmlFor="image"
-                className="py-2 px-3 ml-3 font-bold bg-green-500 rounded text-white cursor-pointer"
-              >
-                <i className="fa-solid fa-circle-check fa-xl"></i>
-              </label>
+              <div className="flex items-center">
+                {selectedImage.size > 1048576 ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedImage(null);
+                    }}
+                    className="py-2 px-3 ml-3 font-bold bg-red-500 rounded text-white cursor-pointer"
+                  >
+                    Delete
+                  </button>
+                ) : (
+                  <>
+                    <label htmlFor="image">Add Image</label>
+                    {/* Rest of the "Add Image" button code... */}
+                  </>
+                )}
+              </div>
             ) : (
               <>
                 <label htmlFor="image">Add Image</label>
@@ -215,6 +257,9 @@ const AddBlog = () => {
                 className="max-w-full h-auto rounded"
               />
             </div>
+          )}
+          {formErrors.image && (
+            <p className="text-red-500 mt-1">Image should be less than 1MB.</p>
           )}
           <div className="mt-10 font-bold  ">
             <button
