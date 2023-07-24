@@ -64,9 +64,9 @@ const AddBlog = () => {
   };
   const validateForm = () => {
     const errors = {
-      title: newBlog.title.trim().length <= 3,
-      description: newBlog.description.trim().length <= 5,
-      post: newBlog.post.trim().length <= 5,
+      title: newBlog.title.trim().length < 3,
+      description: newBlog.description.trim().length < 5,
+      post: newBlog.post.trim().length < 5,
 
       image: selectedImage ? selectedImage.size > 1048576 : false,
     };
