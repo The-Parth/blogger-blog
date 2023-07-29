@@ -43,6 +43,7 @@ const Signup = () => {
         if (Data.success) {
             localStorage.setItem("token", Data.token);
             navigate("/");
+            window.location.reload(false);
         } else {
             alert(Data.Error);
         }
